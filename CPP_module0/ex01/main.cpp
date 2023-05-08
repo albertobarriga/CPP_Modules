@@ -1,10 +1,10 @@
-#include "Contact.cpp"
+#include "Contact.hpp"
 #include <iostream>
 
 int main()
 {
-	Contact miContacto(1, "alberto", "barriga", "barrigadam");
+	Contact myContact(1, "alberto", "barriga", "barrigadam");
 
-	std::cout << miContacto.get_index();
+	std::cout << myContact.get_index() << std::endl;
 	return 0;
 }
