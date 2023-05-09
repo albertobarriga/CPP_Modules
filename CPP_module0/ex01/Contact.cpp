@@ -1,6 +1,5 @@
 #include "Contact.hpp"
 
-
 Contact::Contact(int index, std::string first_name, std::string last_name, std::string nickname) {
 	_index = index;
 	_first_name = first_name;
