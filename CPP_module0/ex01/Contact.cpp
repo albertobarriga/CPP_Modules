@@ -1,11 +1,10 @@
 #include "Contact.hpp"
 
-Contact::Contact(): _first_name(""), _last_name(""), _nickname("") {}
-Contact::Contact(std::string first_name, std::string last_name, std::string nickname) {
-	_first_name = first_name;
-	_last_name = last_name;
-	_nickname = nickname;
-
+Contact::Contact()
+{
+}
+Contact::~Contact()
+{
 }
 
 std::string	Contact::get_first_name() { 
@@ -25,12 +24,18 @@ std::string	Contact::get_nickname() {
 		return (_nickname.substr(0, 9) + ".");
 	return(_nickname); }
 
-void Contact::print_info() {
-	std::cout << "|" << "|" << _first_name << "|" << _last_name << "|" << _nickname << std::endl;
+void Contact::print_info(int ind) {
+	std::cout << "| " << ind << "| " << _first_name << "| " << _last_name << "| " << _nickname << "| " << _phonenumber << "| " << _darkest_secret << std::endl;
 }
 void Contact::add_contact() {
-	std::cout << "Introduce nombre: ";
+	std::cout << "Enter first_name: ";
 	std::cin >> _first_name;
-	std::cout << "Introduce apellido: ";
+	std::cout << "Enter last_name: ";
 	std::cin >> _last_name;
+	std::cout << "Enter nickname: ";
+	std::cin >> _nickname;
+	std::cout << "Enter number: ";
+	std::cin >> _phonenumber;
+	std::cout << "Enter secret: ";
+	std::cin >> _darkest_secret;
 }

@@ -17,6 +17,7 @@ class PhoneBook
 		// void set_information();
 		// void get_information();
 		// void show_instruction();
+		int	index_aux;
 	private:
 		Contact	contacts[8];
 		int index;
