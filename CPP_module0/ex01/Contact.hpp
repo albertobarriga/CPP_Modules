@@ -16,7 +16,6 @@ class Contact
 		std::string	get_nickname();
 		void print_info(int ind);
 		void add_contact();
-		// int			index;
 
 	private:
 		std::string _first_name;

@@ -1,10 +1,8 @@
 #include "Contact.hpp"
 
-Contact::Contact()
-{
+Contact::Contact() {
 }
-Contact::~Contact()
-{
+Contact::~Contact() {
 }
 
 std::string	Contact::get_first_name() { 
