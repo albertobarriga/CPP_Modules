@@ -2,16 +2,13 @@ CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = Zombie.cpp \
-		main.cpp \
-		newZombie.cpp \
-		randomChump.cpp
+SRCS = main.cpp
 
 OBJ = $(SRCS:.cpp=.o)
 
 RM = 	rm -f
 
-NAME = zombie
+NAME = replace
 
 %.o: %.cpp
 	$(CC) $(CFLAGS) -c $^ -o $@

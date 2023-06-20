@@ -12,9 +12,11 @@ NAME = brain
 
 all: $(NAME)
 
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $^ -o $@
+
 $(NAME): $(OBJ)
-	$(CC) -o $(NAME) $(OBJ)
-	
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
 
 clean:
 	$(RM) ${OBJ}

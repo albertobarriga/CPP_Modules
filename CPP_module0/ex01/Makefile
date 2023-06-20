@@ -12,10 +12,13 @@ RM = 	rm -f
 
 NAME = PhoneBook
 
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $^ -o $@
+
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) -o $(NAME) $(OBJ)
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
 	
 
 clean:

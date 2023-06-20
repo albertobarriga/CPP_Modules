@@ -13,6 +13,9 @@ RM = 	rm -f
 
 NAME = weapon
 
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $^ -o $@
+
 all: $(NAME)
 
 $(NAME): $(OBJ)
