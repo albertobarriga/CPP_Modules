@@ -12,7 +12,7 @@ class ScavTrap: public ClapTrap
 	public:
 		ScavTrap();
 		ScavTrap(std::string name);
-		~ScavTrap();
+		virtual	~ScavTrap();
 		ScavTrap(ScavTrap const &copy);
 
 		ScavTrap	&operator=(ScavTrap const &copy);

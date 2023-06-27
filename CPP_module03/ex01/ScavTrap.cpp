@@ -9,7 +9,7 @@ ScavTrap::ScavTrap(): ClapTrap()
 	std::cout << "ScavTrap Constructor called" << std::endl;
 }
 
-ScavTrap:ScavTrap(ScavTrap const &copy): ClapTrap(copy)
+ScavTrap::ScavTrap(ScavTrap const &copy): ClapTrap(copy)
 {
 	this->_guard_gate = copy._guard_gate;
 	std::cout << "ScavTrap call copy constructor" << std::endl;
@@ -32,6 +32,10 @@ ScavTrap::~ScavTrap()
 ScavTrap	&ScavTrap::operator=(ScavTrap const &copy)
 {
 	std::cout << "ScavTrap operator called" << std::endl;
+	this->_hit_points = copy._hit_points;
+	this->_energy_points = copy._energy_points;
+	this->_attack_points = copy._attack_points;
+	this->_guard_gate = copy._guard_gate;
 	return (*this);
 }
 
