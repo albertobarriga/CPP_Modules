@@ -4,13 +4,14 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRCS = ClapTrap.cpp\
 		ScavTrap.cpp\
+		FragTrap.cpp\
 		main.cpp
 
 OBJ = $(SRCS:.cpp=.o)
 
 RM = 	rm -f
 
-NAME = scavtrap
+NAME = fragtrap
 
 %.o: %.cpp
 	$(CC) $(CFLAGS) -c $^ -o $@
