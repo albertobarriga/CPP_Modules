@@ -32,7 +32,7 @@ class Fixed
 		Fixed	operator++(int );
 		Fixed	operator--(void);
 		Fixed	operator--(int );
-		static const Fixed &min(Fixed const &copy1, Fixed const &copy2);
+		static const Fixed &min (Fixed const &copy1, Fixed const &copy2);
 		static const Fixed &max(Fixed const &copy1, Fixed const &copy2);
 
 
