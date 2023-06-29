@@ -1,5 +1,6 @@
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 
 int main()
@@ -42,5 +43,19 @@ int main()
 	d.highFivesGuys();
 	d.takeDamage(15);
 	d.beRepaired(5);
+
+	std::cout <<std::endl << "empieza el diamondtrap" << std::endl << std::endl;
+	DiamondTrap z("NANO");
+
+	z.attack("knife");
+	z.takeDamage(1);
+	z.takeDamage(1);
+	z.beRepaired(5);
+	z.highFivesGuys();
+	z.takeDamage(10);
+	z.highFivesGuys();
+	z.takeDamage(15);
+	z.beRepaired(5);
+	z.whoAmI();
 
 }

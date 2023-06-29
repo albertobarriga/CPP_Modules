@@ -4,9 +4,9 @@
 #include "ClapTrap.hpp"
 # include <iostream>
 
-class ScavTrap: public ClapTrap
+class ScavTrap: virtual public ClapTrap
 {
-	private:
+	protected:
 		bool	_guard_gate;
 
 	public:
