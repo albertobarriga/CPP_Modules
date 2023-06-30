@@ -27,7 +27,6 @@ WrongAnimal &WrongAnimal::operator=(WrongAnimal const &copy)
 
 void WrongAnimal::makeSound() const
 {
-	std::cout << "entro en wrong animal" << std::endl;
 	std::cout << "Default WrongAnimal doesn't make noise" << std::endl;
 }
 

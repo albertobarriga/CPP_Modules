@@ -17,10 +17,10 @@ i->makeSound(); //will output the cat sound!
 j->makeSound();
 meta->makeSound();
 
-// const WrongAnimal* w = new WrongAnimal();
+const WrongAnimal* w = new WrongAnimal();
 const WrongAnimal* k = new WrongCat();
 std::cout << k->getType() << " " << std::endl;
 k->makeSound();
-// w->makeSound();
+w->makeSound();
 return 0;
 }
