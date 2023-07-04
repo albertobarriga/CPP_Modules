@@ -9,7 +9,7 @@
 
 void    ft_leaks()
 {
-    system("leaks -q brain");
+    system("leaks -q AAnimal");
 }
 int main() {
     atexit(ft_leaks);

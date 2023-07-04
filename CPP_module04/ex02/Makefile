@@ -14,7 +14,7 @@ OBJ = $(SRCS:.cpp=.o)
 
 RM = 	rm -f
 
-NAME = brain
+NAME = AAnimal
 
 %.o: %.cpp
 	$(CC) $(CFLAGS) -c $^ -o $@
