@@ -25,11 +25,6 @@ Animal &Animal::operator=(Animal const &copy)
 	return (*this);
 }
 
-void Animal::makeSound() const
-{
-	std::cout << "Default Animal doesn't make noise" << std::endl;
-}
-
 std::string	Animal::getType() const
 {
 	return (this->_type);
