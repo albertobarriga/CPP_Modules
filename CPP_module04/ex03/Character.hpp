@@ -2,6 +2,8 @@
 #define CHARACTER_HPP
 
 # include <iostream>
+# include "Materia.hpp"
+
 
 class ICharacter
 {
@@ -14,5 +16,15 @@ class ICharacter
 		virtual void unequip(int idx) = 0;
 		virtual void use(int idx, ICharacter& target) = 0;
 };
+
+class Character : public ICharacter
+{
+	public:
+		Character();
+		Character(std::string const &name);
+		~Character();
+		Character(Character const &copy);
+
+}
 
 #endif
