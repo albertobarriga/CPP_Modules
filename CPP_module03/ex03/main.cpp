@@ -46,6 +46,8 @@ int main()
 
 	std::cout <<std::endl << "empieza el diamondtrap" << std::endl << std::endl;
 	DiamondTrap z("NANO");
+	DiamondTrap f("Fuaa");
+	f = z;
 
 	z.attack("knife");
 	z.takeDamage(1);
@@ -57,5 +59,16 @@ int main()
 	z.takeDamage(15);
 	z.beRepaired(5);
 	z.whoAmI();
+
+	f.attack("knife");
+	f.takeDamage(1);
+	f.takeDamage(1);
+	f.beRepaired(5);
+	f.highFivesGuys();
+	f.takeDamage(10);
+	f.highFivesGuys();
+	f.takeDamage(15);
+	f.beRepaired(5);
+	f.whoAmI();
 
 }

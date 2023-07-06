@@ -33,6 +33,7 @@ DiamondTrap	&DiamondTrap::operator=(DiamondTrap const &copy)
 {
 	std::cout << "DiamondTrap operator called" << std::endl;
 	ClapTrap::_name = copy._name  + "_clap_name";
+	this->_name =  copy._name;
 	this->_hit_points = copy._hit_points;
 	this->_energy_points = copy._energy_points;
 	this->_attack_points = copy._attack_points;
