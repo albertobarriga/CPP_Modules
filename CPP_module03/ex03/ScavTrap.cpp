@@ -44,10 +44,10 @@ void	ScavTrap::guardGate()
 	if (this->_guard_gate == false)
 	{
 		this->_guard_gate = true;
-		std::cout << "ScavTrap" << this->_name << " is starting guarding the gate" << std::endl;
+		std::cout << "ScavTrap " << this->_name << " is starting guarding the gate" << std::endl;
 	}
 	else
-		std::cout << "ScavTrap" << this->_name << " it was already guarding the gate" << std::endl;
+		std::cout << "ScavTrap " << this->_name << " it was already guarding the gate" << std::endl;
 
 }
 
