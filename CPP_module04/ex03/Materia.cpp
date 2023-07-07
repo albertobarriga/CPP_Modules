@@ -16,22 +16,22 @@ AMateria::~AMateria() {
 
 AMateria::AMateria(AMateria const &copy) {
 	this->_type = copy._type;
-	return *this;
 }
 
 AMateria & AMateria::operator=(AMateria const &copy) {
-	
+	this->_type = copy._type;
+	return *this;
 }
 
 std::string const & AMateria::getType() const {
 	return (this->_type);
 }
 
-void AMaterial::use(ICharacter& target) {
+void AMateria::use(ICharacter& target) {
 	if (this->_type == "ice")
-		std::cout << "Ice: '* shoots an ice bolt at " << target.getname() << "*'" << std::endl;
+		std::cout << "Ice: '* shoots an ice bolt at " << target.getName() << "*'" << std::endl;
 	else if (this->_type == "cure")
-		std::cout << "Cure: '* heals " << target.getname() << "'s wounds *'" << std::endl;
+		std::cout << "Cure: '* heals " << target.getName() << "'s wounds *'" << std::endl;
 }
 
 // ICE CLASS
@@ -55,7 +55,7 @@ AMateria* Ice::clone() const {
 
 // CURE CLASS 
 
-Cure::Cure() : AMATERIA("cure") {
+Cure::Cure() : AMateria("cure") {
 
 }
 
