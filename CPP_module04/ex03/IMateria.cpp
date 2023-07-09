@@ -9,10 +9,10 @@ MateriaSource::MateriaSource() {
 		this->source[i] = NULL;
 }
 
-MateriaSource::MateriaSource(std::string const &name) : _name(name) {
-	for (int i = 0; i < 4; i++)
-		this->source[i] = NULL;
-}
+// MateriaSource::MateriaSource(std::string const &name) : _name(name) {
+// 	for (int i = 0; i < 4; i++)
+// 		this->source[i] = NULL;
+// }
 
 MateriaSource::~MateriaSource() {
 	for (int i = 0; i < 4; i++)
@@ -56,7 +56,7 @@ MateriaSource	&MateriaSource::operator=(MateriaSource const &copy)
 	}
 
 	AMateria* MateriaSource::createMateria(std::string const & type) {
-		for (int = 0, i < 4 && this->source[i] != NULL, i++)
+		for (int i = 0; (i < 4 && this->source[i] != NULL); i++)
 		{
 			if (this->source[i]->getType() == type)
 				return (this->source[i]->clone());

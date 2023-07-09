@@ -11,7 +11,7 @@ OBJ = $(SRCS:.cpp=.o)
 
 RM = 	rm -f
 
-NAME = AAnimal
+NAME = Interface
 
 %.o: %.cpp
 	$(CC) $(CFLAGS) -c $^ -o $@

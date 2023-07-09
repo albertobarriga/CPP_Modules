@@ -1,4 +1,5 @@
 #include "Materia.hpp"
+#include "Character.hpp"
 
 // AMATERIA CLASS
 
@@ -44,6 +45,10 @@ Ice::~Ice() {
 
 }
 
+Ice::Ice(Ice const &copy) {
+	this->_type = copy.getType();
+}
+
 Ice	& Ice::operator=(Ice const &copy) {
 	this->_type = copy.getType();
 	return *this;
@@ -61,6 +66,10 @@ Cure::Cure() : AMateria("cure") {
 
 Cure::~Cure() {
 
+}
+
+Cure::Cure(Cure const &copy) {
+	this->_type = copy.getType();
 }
 
 Cure	& Cure::operator=(Cure const &copy) {

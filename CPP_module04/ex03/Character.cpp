@@ -66,10 +66,15 @@ void Character::equip(AMateria* m) {
 	int i = 0;
 
 	while (this->inventory[i] && i < 4)
+	{
+		std::cout << "entro" << i << std::endl;
 		i++;
+	}
 	if (i != 4)
+	{
 		this->inventory[i] = m;
 		std::cout << "Equip index :" << i << std::endl;
+	}
 }
 
 void Character::unequip(int idx) {
@@ -90,5 +95,5 @@ void Character::unequip(int idx) {
 void Character::use(int idx, ICharacter& target) {
 	if (idx < 4 && this->inventory[idx])
 		this->inventory[idx]->use(target);
-		std::cout << "Use index :" << idx << std::endl;
+		// std::cout << "Use index :" << idx << std::endl;
 }
