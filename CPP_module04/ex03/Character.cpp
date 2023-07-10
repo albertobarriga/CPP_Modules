@@ -16,16 +16,16 @@ Character::Character(std::string const &name) : _name(name) {
 }
 
 Character::~Character() {
-	for (int i = 0; i < 4; i++)
-	{
-		if (this->inventory[i])
-		{
-			delete this->inventory[i];
-			this->inventory[i] = NULL;
-		}
-	}
-	if (this->floor != NULL)
-		delete (this->floor);
+	// for (int i = 0; i < 4; i++)
+	// {
+	// 	if (this->inventory[i] != NULL)
+	// 	{
+	// 		delete this->inventory[i];
+	// 		this->inventory[i] = NULL;
+	// 	}
+	// }
+	// if (this->floor != NULL)
+	// 	delete (this->floor);
 }
 
 Character::Character(Character const &copy) {
@@ -67,13 +67,12 @@ void Character::equip(AMateria* m) {
 
 	while (this->inventory[i] && i < 4)
 	{
-		std::cout << "entro" << i << std::endl;
 		i++;
 	}
-	if (i != 4)
+	if (i < 4)
 	{
 		this->inventory[i] = m;
-		std::cout << "Equip index :" << i << std::endl;
+		// std::cout << "Equip index :" << i << std::endl;
 	}
 }
 
