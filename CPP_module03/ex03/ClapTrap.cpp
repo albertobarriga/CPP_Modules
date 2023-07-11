@@ -12,11 +12,11 @@ ClapTrap::ClapTrap(const ClapTrap &copy)
 }
 
 ClapTrap::ClapTrap(std::string name): _name(name), _hit_points(10), _energy_points(10), _attack_points(0) {
-	std::cout << "call to the constructor" << std::endl;
+	std::cout << "ClapTrap call constructor" << std::endl;
 }
 
 ClapTrap::~ClapTrap() {
-	std::cout << "call to the destructor" << std::endl;
+	std::cout << "ClapTrap call destructor" << std::endl;
 }
 
 ClapTrap	&ClapTrap::operator=(ClapTrap const &copy)

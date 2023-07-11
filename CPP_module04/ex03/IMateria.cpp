@@ -52,7 +52,7 @@ MateriaSource	&MateriaSource::operator=(MateriaSource const &copy)
 		int i = 0;
 		while (this->source[i])
 			i++;
-		this->source[i] = m->clone();
+		this->source[i] = m;
 	}
 
 	AMateria* MateriaSource::createMateria(std::string const & type) {

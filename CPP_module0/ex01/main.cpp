@@ -6,7 +6,6 @@ int main()
 {
 	PhoneBook book;
 	std::string order;
-	// int index;
 	std::string input;
 
 	while (true) {
@@ -25,7 +24,7 @@ int main()
 			if (input == "0" || input == "1" || input == "2" || input == "3" || input == "4" || input == "5" || input == "6" || input == "7")
 				book.print_contact(atoi(input.c_str()));
 			else 
-				std::cout << "ERROR NO NUMERIC INPUT" << std::endl;
+				std::cout << "ERROR INPUT" << std::endl;
 		}
 		else if (order == "EXIT")
 			return 0;

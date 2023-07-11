@@ -55,7 +55,7 @@ Ice	& Ice::operator=(Ice const &copy) {
 }
 
 AMateria* Ice::clone() const {
-	return (new Ice(*this));
+	return (new Ice());
 }
 
 // CURE CLASS 
@@ -78,5 +78,5 @@ Cure	& Cure::operator=(Cure const &copy) {
 }
 
 AMateria* Cure::clone() const {
-	return (new Cure(*this));
+	return (new Cure());
 }
