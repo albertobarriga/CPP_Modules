@@ -33,7 +33,6 @@ int	Harl::get_level(std::string level) {
 	levels[1] = "INFO";
 	levels[2]= "WARNING";
 	levels[3] = "ERROR";
-	// levels[4] = "";
 
 	int arg;
 	for (arg = 0; levels[arg] != level && arg < 4; arg++) {
@@ -57,28 +56,28 @@ void	Harl::filter(std::string level) {
 	switch (lvl)
 	{
 		case 0:
-				std::cout << "[ DEBUG]\n";
+				std::cout << "[ DEBUG ]\n";
 				while (lvl < 4) {
 					(this->*ptrs[lvl])();
 					lvl++;
 				};
 				break;
 		case 1:
-				std::cout << "[ INFO]\n";
+				std::cout << "[ INFO ]\n";
 				while (lvl < 4) {
 					(this->*ptrs[lvl])();
 					lvl++;
 				};
 				break;
 		case 2:
-				std::cout << "[ WARNING]\n";
+				std::cout << "[ WARNING ]\n";
 				while (lvl < 4) {
 					(this->*ptrs[lvl])();
 					lvl++;
 				};
 				break;
 		case 3:
-				std::cout << "[ ERROR]\n";
+				std::cout << "[ ERROR ]\n";
 				while (lvl < 4) {
 					(this->*ptrs[lvl])();
 					lvl++;

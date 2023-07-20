@@ -16,22 +16,21 @@ Character::Character(std::string const &name) : _name(name) {
 }
 
 Character::~Character() {
-	// for (int i = 0; i < 4; i++)
-	// {
-	// 	if (this->inventory[i] != NULL)
-	// 	{
-	// 		delete this->inventory[i];
-	// 		this->inventory[i] = NULL;
-	// 	}
-	// }
-	// if (this->floor != NULL)
-	// 	delete (this->floor);
 }
 
 Character::Character(Character const &copy) {
-	// for (int i = 0, i < 4, i++)
-	// 	this->inventory[i] = NULL;
-	*this = copy;
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->inventory[i] != NULL)
+			this->inventory[i] = copy.inventory[i]->clone();
+		else
+			this->inventory[i] = NULL;
+	}
+	this->_name = copy._name;
+	if (this->floor != NULL)
+		this->floor = copy.floor->clone();
+	else
+		this->floor = NULL;
 }
 
 Character	&Character::operator=(Character const &copy)
@@ -72,7 +71,6 @@ void Character::equip(AMateria* m) {
 	if (i < 4)
 	{
 		this->inventory[i] = m;
-		// std::cout << "Equip index :" << i << std::endl;
 	}
 }
 
@@ -83,7 +81,7 @@ void Character::unequip(int idx) {
 			this->floor = this->inventory[idx];
 		else
 		{
-			std::cout << "Floor es full" << std::endl;
+			std::cout << "Floor is full" << std::endl;
 			return ;
 		}
 		this->inventory[idx] = NULL;
@@ -96,3 +94,4 @@ void Character::use(int idx, ICharacter& target) {
 		this->inventory[idx]->use(target);
 		// std::cout << "Use index :" << idx << std::endl;
 }
+ 

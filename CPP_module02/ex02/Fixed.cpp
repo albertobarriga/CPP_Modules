@@ -5,31 +5,33 @@ const int	Fixed::_fract_bits = 8;
 
 Fixed::Fixed(): _value(0)
 {
-	// std::cout << "Default constructor called" << std::endl;
+	std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(const int num) {
+	std::cout << "Int constructor called" << std::endl;
 	_value = num << _fract_bits;
 }
 
 Fixed::Fixed(const float num) {
+	std::cout << "Float constructor called" << std::endl;
 	_value = roundf(num * (1 << _fract_bits));
 }
 
 Fixed::~Fixed()
 {
-	// std::cout << "Destructor called" << std::endl;
+	std::cout << "Destructor called" << std::endl;
 }
 
 Fixed::Fixed(Fixed const &copy)
 {
-	// std::cout << "Copy constructor called" << std::endl;
+	std::cout << "Copy constructor called" << std::endl;
 	*this = copy;
 }
 
 Fixed	&Fixed::operator=(const Fixed &copy)
 {
-	// std::cout << "Assignation operator called" << std::endl;
+	std::cout << "Assignation operator called" << std::endl;
 	if (this != &copy)
 		this->_value = copy.getRawBits();
 	return (*this);

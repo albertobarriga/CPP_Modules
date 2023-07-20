@@ -43,6 +43,7 @@ int main()
 	ice2 = src->createMateria("ice");
 	me->equip(ice2);                 //equip
 
+
 	delete ice;
 	delete ice1;
 	delete ice2;

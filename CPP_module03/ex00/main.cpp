@@ -11,6 +11,4 @@ int main()
 	a.takeDamage(10);
 	a.takeDamage(15);
 	a.beRepaired(5);
-
-
 }

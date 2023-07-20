@@ -18,7 +18,6 @@ class ICharacter
 		virtual void use(int idx, ICharacter& target) = 0;
 };
 
-
 class Character : public ICharacter
 {
 	private:

@@ -2,8 +2,6 @@
 #include <string>
 #include <fstream>
 
-// void replace_text(std::string )
-
 int main (int argc, char **argv) {
 	if (argc != 4) {
 		std::cout << "ERROR: The program need 3 arguments." << std::endl;

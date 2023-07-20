@@ -26,8 +26,6 @@ MateriaSource::~MateriaSource() {
 }
 
 MateriaSource::MateriaSource(MateriaSource const &copy) {
-	// for (int i = 0, i < 4, i++)
-	// 	this->inventory[i] = NULL;
 	*this = copy;
 }
 

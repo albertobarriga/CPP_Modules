@@ -39,6 +39,10 @@ int main() {
 
     const Cat* cats[2];
 
+    // const Animal* animal;
+    // animal = new Animal();
+    // animal->makeSound();
+
     cats[0] = new Cat;
     cats[0]->makeSound();
     cats[1] = new Cat(*cats[0]);
