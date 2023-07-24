@@ -4,6 +4,7 @@
 # include <iostream>
 # include <stdexcept>
 # include <iostream>
+#include "Form.hpp"
 
 class Bureaucrat
 {

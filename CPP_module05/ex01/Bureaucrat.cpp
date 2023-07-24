@@ -1,4 +1,5 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 class Bureaucrat::GradeTooHighException: public std::exception
 {
@@ -63,4 +64,16 @@ void	Bureaucrat::decrement() {
 std::ostream	&operator<<(std::ostream &outstream, const Bureaucrat &bure) {
 	outstream << bure.getName() << ", bureaucrat grade " << bure.getGrade() << ".\n";
 	return (outstream);
+}
+
+void	Bureaucrat::signForm(Form &form) {
+	try
+	{
+		form.beSigned(*this);
+		std::cout << this->_name << " signed " << form.getName() << std::endl;
+	}
+	catch(std::exception &excep)
+	{
+		std::cout << this->_name << " couldn't sign " << form.getName() << " because " << excep.what() << std::endl;
+	}
 }
