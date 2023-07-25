@@ -18,11 +18,9 @@ class Form::GradeTooLowException: public std::exception
 };
 
 Form::Form() : is_signed(false), grade_to_sign(0), grade_to_exec(0) {
-	std::cout << "ha entrado en el constructor simple" << std::endl;
 }
 
 Form::Form(const std::string _name, const int grade_sign, const int grade_exec): _name(_name), is_signed(false), grade_to_sign(grade_sign), grade_to_exec(grade_exec) {
-    std::cout << "ha entrado en el constructor complejo" << std::endl;
 	if (grade_to_sign < 1 || grade_to_exec < 1)
         throw GradeTooLowException();
     else if (grade_to_sign > 150 || grade_to_exec > 150)
@@ -38,11 +36,6 @@ Form::~Form() {
 
 Form	&Form::operator=(Form const &copy) {
     is_signed = copy.is_signed;
-    // _name = copy.getName();
-    // _name = copy._name;
-	// grade_to_sign = copy.grade_to_sign;
-	// grade_to_exec = copy.grade_to_exec;
-	(void)copy;
     return *this;
 }
 
