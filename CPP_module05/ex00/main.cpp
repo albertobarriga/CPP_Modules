@@ -4,6 +4,7 @@ int main()
 {
 	try {
 		Bureaucrat one("PACO", 155);
+		std::cout << one;
 		}
 	catch(std::exception &exc)
 	{
@@ -11,6 +12,8 @@ int main()
 	}
 
 	Bureaucrat two("LUIS", 150);
+
+	std::cout << two;
 
 	try {
 		two.decrement();
@@ -21,12 +24,14 @@ int main()
 	}
 
 	Bureaucrat three("ANTONIO", 1);
+	std::cout << three;
 
 	try {
 		three.increment();
 		}
 	catch(std::exception &exc)
 	{
+		std::cout << three;
 		std::cout << exc.what();
 	}
 }
