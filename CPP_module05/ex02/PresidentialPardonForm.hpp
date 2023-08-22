@@ -2,6 +2,7 @@
 #define PRESIDENTIALPARDONFORM_HPP
 
 # include <iostream>
+# include <Form.hpp>
 
 class PresidentialPardonForm: public Form
 {
@@ -13,6 +14,8 @@ class PresidentialPardonForm: public Form
 		virtual ~PresidentialPardonForm();
 		PresidentialPardonForm(PresidentialPardonForm const &copy);
 		PresidentialPardonForm	&operator=(PresidentialPardonForm const &copy);
+
+		void execute(Bureaucrat const &executor) const;
 };
 
 #endif

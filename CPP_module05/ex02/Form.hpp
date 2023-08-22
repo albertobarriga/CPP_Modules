@@ -27,6 +27,8 @@ class Form
 
 		void	beSigned(Bureaucrat &bure);
 
+		virtual void execute(Bureaucrat const &executor) const = 0;
+
 		class	GradeTooHighException;
 		class	GradeTooLowException;
 };

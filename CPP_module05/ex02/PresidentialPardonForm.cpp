@@ -10,7 +10,7 @@ PresidentialPardonForm::~PresidentialPardonForm() {
 
 }
 
-PresidentialPardonForm::PresidentialPardonForm(RobotomyRequestForm const &copy): Form(copy), target(copy.target) {
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &copy): Form(copy), target(copy.target) {
 
 }
 
@@ -19,3 +19,7 @@ PresidentialPardonForm	&PresidentialPardonForm::operator=(PresidentialPardonForm
 	return (*this);
 }
 
+void PresidentialPardonForm::execute(Bureaucrat const &executor) const
+{
+	Form::execute(executor);
+}

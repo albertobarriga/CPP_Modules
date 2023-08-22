@@ -27,6 +27,8 @@ class Bureaucrat
 
 		void	signForm(Form &form);
 
+		void	executeForm(Form const &form);
+
 		class	GradeTooHighException;
 		class	GradeTooLowException;
 

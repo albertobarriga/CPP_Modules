@@ -2,6 +2,7 @@
 #define SHRUBBERYCREATIONFORM_HPP
 
 # include <iostream>
+# include <Form.hpp>
 
 class ShrubberyCreationForm: public Form
 {
@@ -13,6 +14,8 @@ class ShrubberyCreationForm: public Form
 		virtual ~ShrubberyCreationForm();
 		ShrubberyCreationForm(ShrubberyCreationForm const &copy);
 		ShrubberyCreationForm	&operator=(ShrubberyCreationForm const &copy);
+
+		void execute(Bureaucrat const &executor) const;
 };
 
 #endif
