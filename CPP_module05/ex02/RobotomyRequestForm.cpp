@@ -10,7 +10,8 @@ RobotomyRequestForm::~RobotomyRequestForm() {
 
 }
 
-RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &copy): Form(copy), target(copy.target) {
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &copy): Form(copy), target(copy.target)
+{
 
 }
 
@@ -19,4 +20,14 @@ RobotomyRequestForm	&RobotomyRequestForm::operator=(RobotomyRequestForm const &c
 	return (*this);
 }
 
+void RobotomyRequestForm::personal_execute(Bureaucrat const &executor) const
+{
+	(void) executor;
+	std::cout << this->target << "Bipp bipp bopp" << std::endl;
+	std::srand(std::time(0));
+	if (rand() % 2 == 0)
+		std::cout << this->target << " has been robotomized succesfully" << std::endl;
+	else
+		std::cout <<"robotomized fail" << std::endl;
+}
 

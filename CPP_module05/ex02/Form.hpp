@@ -27,10 +27,12 @@ class Form
 
 		void	beSigned(Bureaucrat &bure);
 
-		virtual void execute(Bureaucrat const &executor) const = 0;
+		virtual void execute(Bureaucrat const &executor) const;
+		virtual void personal_execute(Bureaucrat const &executor) const = 0;
 
 		class	GradeTooHighException;
 		class	GradeTooLowException;
+		class	NotSignedExcep;
 };
 
 std::ostream	&operator<<(std::ostream &outstream, const Form &frm);

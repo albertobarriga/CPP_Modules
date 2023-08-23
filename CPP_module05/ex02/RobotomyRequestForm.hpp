@@ -2,7 +2,8 @@
 #define ROBOTOMYREQUESTFORM_HPP
 
 # include <iostream>
-# include <Form.hpp>
+# include <cstdlib>
+# include "Form.hpp"
 
 class RobotomyRequestForm: public Form
 {
@@ -10,11 +11,12 @@ class RobotomyRequestForm: public Form
 		std::string	target;
 	public:
 		RobotomyRequestForm();
-		virtual ~RobotomyRequestForm();
+		RobotomyRequestForm(std::string	target);
+		~RobotomyRequestForm();
 		RobotomyRequestForm(RobotomyRequestForm const &copy);
 		RobotomyRequestForm	&operator=(RobotomyRequestForm const &copy);
 
-		void execute(Bureaucrat const &executor) const;
+		void personal_execute(Bureaucrat const &executor) const;
 };
 
 #endif

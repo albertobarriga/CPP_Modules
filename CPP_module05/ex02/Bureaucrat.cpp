@@ -76,7 +76,7 @@ void	Bureaucrat::signForm(Form &form) {
 
 void Bureaucrat::executeForm(Form const &form)
 {
-	
+	(void) form;
 }
 
 std::ostream	&operator<<(std::ostream &outstream, const Bureaucrat &bure) {

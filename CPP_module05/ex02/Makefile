@@ -2,8 +2,11 @@ CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = Bureaucrat.cpp\
-		Form.cpp\
+SRCS = Form.cpp\
+		Bureaucrat.cpp\
+		PresidentialPardonForm.cpp\
+		RobotomyRequestForm.cpp\
+		ShrubberyCreationForm.cpp\
 		main.cpp
 
 OBJ = $(SRCS:.cpp=.o)

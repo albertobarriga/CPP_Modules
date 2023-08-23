@@ -2,7 +2,7 @@
 #define PRESIDENTIALPARDONFORM_HPP
 
 # include <iostream>
-# include <Form.hpp>
+# include "Form.hpp"
 
 class PresidentialPardonForm: public Form
 {
@@ -11,11 +11,11 @@ class PresidentialPardonForm: public Form
 	public:
 		PresidentialPardonForm();
 		PresidentialPardonForm(std::string	target);
-		virtual ~PresidentialPardonForm();
+		~PresidentialPardonForm();
 		PresidentialPardonForm(PresidentialPardonForm const &copy);
 		PresidentialPardonForm	&operator=(PresidentialPardonForm const &copy);
 
-		void execute(Bureaucrat const &executor) const;
+		void personal_execute(Bureaucrat const &executor) const;
 };
 
 #endif

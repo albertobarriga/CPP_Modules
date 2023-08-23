@@ -17,6 +17,14 @@ class Form::GradeTooLowException: public std::exception
 		}
 };
 
+class Form::NotSignedExcep: public std::exception
+{
+	public:
+		virtual const char* what() const throw() {
+			return("It can't be execute becouse is not signed\n");
+		}
+};
+
 Form::Form() : is_signed(false), grade_to_sign(0), grade_to_exec(0) {
 }
 
@@ -68,7 +76,9 @@ void Form::execute(Bureaucrat const &executor) const
 		throw Form::NotSignedExcep();
 	else if (executor.getGrade() > this->grade_to_exec)
 		throw Form::GradeTooLowException();
+	personal_execute(executor);
 }
+
 
 std::ostream	&operator<<(std::ostream &outstream, const Form &frm)
 {
