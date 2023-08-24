@@ -2,9 +2,9 @@
 #define SHRUBBERYCREATIONFORM_HPP
 
 # include <iostream>
-# include "Form.hpp"
+# include "AForm.hpp"
 
-class ShrubberyCreationForm: public Form
+class ShrubberyCreationForm: public AForm
 {
 	private:
 		std::string	target;

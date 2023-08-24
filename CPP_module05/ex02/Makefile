@@ -2,7 +2,7 @@ CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = Form.cpp\
+SRCS = AForm.cpp\
 		Bureaucrat.cpp\
 		PresidentialPardonForm.cpp\
 		RobotomyRequestForm.cpp\

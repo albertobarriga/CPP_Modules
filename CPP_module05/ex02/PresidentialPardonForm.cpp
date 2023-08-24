@@ -2,7 +2,7 @@
 
 PresidentialPardonForm::PresidentialPardonForm() {}
 
-PresidentialPardonForm::PresidentialPardonForm(std::string	target): Form("PresidentialPardon", 25, 5), target(target) {
+PresidentialPardonForm::PresidentialPardonForm(std::string	target): AForm("PresidentialPardon", 25, 5), target(target) {
 
 }
 
@@ -10,7 +10,7 @@ PresidentialPardonForm::~PresidentialPardonForm() {
 
 }
 
-PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &copy): Form(copy), target(copy.target) {
+PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &copy): AForm(copy), target(copy.target) {
 
 }
 

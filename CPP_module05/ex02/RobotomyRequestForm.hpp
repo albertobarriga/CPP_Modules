@@ -3,9 +3,9 @@
 
 # include <iostream>
 # include <cstdlib>
-# include "Form.hpp"
+# include "AForm.hpp"
 
-class RobotomyRequestForm: public Form
+class RobotomyRequestForm: public AForm
 {
 	private:
 		std::string	target;

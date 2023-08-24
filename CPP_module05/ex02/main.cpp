@@ -1,5 +1,5 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
@@ -7,81 +7,46 @@
 int main()
 {
 	Bureaucrat one("JOSE", 1);
-	Bureaucrat two("LUIS", 10);
+	Bureaucrat two("LUIS", 150);
 	ShrubberyCreationForm tree("arbusto");
+	RobotomyRequestForm robot("bender");
+	PresidentialPardonForm presi("pedro");
+	// one.signForm(tree);
+	try {
+		one.signForm(tree);
+		two.signForm(tree);
+		}
+	catch(std::exception &exc)
+	{
+		std::cout << exc.what();
+	}
+	two.executeForm(tree);
+	one.executeForm(tree);
 
 
-	// std::cout << two;
-
-	// try {
-	// 	two.decrement();
-	// 	}
-	// catch(std::exception &exc)
-	// {
-	// 	std::cout << exc.what();
-	// }
-
-	// std::cout << two;
-	
-	// try {
-	// 	Form mod1 = Form("mod1", 155, 6);
-	// 	std::cout << mod1;
-	// 	}
-	// catch(std::exception &exc)
-	// {
-	// 	std::cout << exc.what();
-	// }
-
-	// // try {
-	// // 	Form mod2 = Form("mod2", 105, 6);
-	// // 	std::cout << mod2;
-	// // 	}
-	// // catch(std::exception &exc)
-	// // {
-	// // 	std::cout << exc.what();
-	// // }
+	try {
+		one.signForm(robot);
+		// two.signForm(robot);
+		}
+	catch(std::exception &exc)
+	{
+		std::cout << exc.what();
+	}
+	// two.executeForm(robot);
+	one.executeForm(robot);
 
 
-	// Form mod2 = Form("mod2", 105, 6);
+	try {
+		one.signForm(presi);
+		// two.signForm(presi);
+		}
+	catch(std::exception &exc)
+	{
+		std::cout << exc.what();
+	}
+	two.executeForm(presi);
+	one.executeForm(presi);
 
-	// two.signForm(mod2);
-
-	// std::cout << mod2;
-	// two.signForm(mod2);
-
-	// std::cout << mod2;
-	// Bureaucrat three("ANTONIO", 1);
-	// std::cout << three;
-
-	// try {
-	// 	three.increment();
-	// 	}
-	// catch(std::exception &exc)
-	// {
-	// 	std::cout << three;
-	// 	std::cout << exc.what();
-	// }
-
-
-	// Form mod3 = Form("mod2", 105, 6);
-
-	// two.signForm(mod2);
-
-	// std::cout << mod2;
-	// two.signForm(mod2);
-
-	// std::cout << mod2;
-	// Bureaucrat three("ANTONIO", 1);
-	// std::cout << three;
-
-	// try {
-	// 	three.increment();
-	// 	}
-	// catch(std::exception &exc)
-	// {
-	// 	std::cout << three;
-	// 	std::cout << exc.what();
-	// }
-
+	// Form mod1 = Form("mod1", 155, 6);
 
 }

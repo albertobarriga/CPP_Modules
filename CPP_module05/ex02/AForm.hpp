@@ -5,7 +5,7 @@
 #include "Bureaucrat.hpp"
 class Bureaucrat;
 
-class Form
+class AForm
 {
 	private:
 		const std::string _name;
@@ -14,11 +14,11 @@ class Form
 		const int grade_to_exec;
 
 	public:
-		Form();
-		Form(const std::string _name, const int grade_to_sign, const int grade_to_exec);
-		virtual ~Form();
-		Form(Form const &copy);
-		Form	&operator=(Form const &copy);
+		AForm();
+		AForm(const std::string _name, const int grade_to_sign, const int grade_to_exec);
+		virtual ~AForm();
+		AForm(AForm const &copy);
+		AForm	&operator=(AForm const &copy);
 
 		std::string	getName() const;
 		bool	getIsSigned() const;
@@ -35,6 +35,6 @@ class Form
 		class	NotSignedExcep;
 };
 
-std::ostream	&operator<<(std::ostream &outstream, const Form &frm);
+std::ostream	&operator<<(std::ostream &outstream, const AForm &frm);
 
 #endif
