@@ -6,6 +6,10 @@ float			ScalarConverter::f = 0;
 double			ScalarConverter::d = 0;
 char 			ScalarConverter::type = 0;
 
+int 			ScalarConverter::flag_c = 0;
+int 			ScalarConverter::flag_i = 0;
+int 			ScalarConverter::flag_f = 0;
+int 			ScalarConverter::flag_d = 0;
 
 
 ScalarConverter::ScalarConverter() {
@@ -49,45 +53,78 @@ void ScalarConverter::SpecialOptions(std::string const &literal) {
 		case 0:
 			ScalarConverter::f = std::stof(literal);
 			ScalarConverter::type = 'f';
+			ScalarConverter::flag_c = 1;
+			ScalarConverter::flag_i = 1;
 			break;
 		case 1:
 			ScalarConverter::f = std::stof(literal);
 			ScalarConverter::type = 'f';
+			ScalarConverter::flag_c = 1;
+			ScalarConverter::flag_i = 1;
 			break;
 		case 2:
 			ScalarConverter::f = std::stof(literal);
 			ScalarConverter::type = 'f';
+			ScalarConverter::flag_c = 1;
+			ScalarConverter::flag_i = 1;
 			break;
 		case 3:
 			ScalarConverter::d = std::stod(literal);
 			ScalarConverter::type = 'd';
+			ScalarConverter::flag_c = 1;
+			ScalarConverter::flag_i = 1;
 			break;
 		case 4:
 			ScalarConverter::d = std::stod(literal);
 			ScalarConverter::type = 'd';
+			ScalarConverter::flag_c = 1;
+			ScalarConverter::flag_i = 1;
 			break;
 		case 5:
 			ScalarConverter::d = std::stod(literal);
 			ScalarConverter::type ='d';
+			ScalarConverter::flag_c = 1;
+			ScalarConverter::flag_i = 1;
 			break;
 		case 6:
 			break;
 	};
-	return (0);
 }
 
 void ScalarConverter::PrintInfo() {
-	std::cout << "char: '" << ScalarConverter::c << "'"<< std::endl;
-	std::cout << "int: " << ScalarConverter::i << std::endl;
-	if (static_cast<int>(ScalarConverter::f) - ScalarConverter::f == 0)
-		std::cout << "float: " << ScalarConverter::f << ".0f"<< std::endl;
+	if (ScalarConverter::flag_c == 1)
+		std::cout << "char: " << "impossible"<< std::endl;
+	else if (ScalarConverter::i < 31 || ScalarConverter::i >= 127)
+		std::cout << "char: " << "Non displayable"<< std::endl;
 	else
-		std::cout << "float: " << ScalarConverter::f << "f"<< std::endl;
+		std::cout << "char: '" << ScalarConverter::c << "'"<< std::endl;
+	if (ScalarConverter::flag_i == 1)
+		std::cout << "int: " << "impossible"<< std::endl;
+	else
+		std::cout << "int: " << ScalarConverter::i << std::endl;
 
-	if (static_cast<int>(ScalarConverter::d) - ScalarConverter::d == 0)
-		std::cout << "double: " << ScalarConverter::d << ".0" << std::endl;
+
+	if (ScalarConverter::flag_f == 1)
+		std::cout << "float: " << "impossible"<< std::endl;
 	else
-		std::cout << "double: " << ScalarConverter::d << std::endl;
+	{
+		if (static_cast<int>(ScalarConverter::f) - ScalarConverter::f == 0)
+			std::cout << "float: " << ScalarConverter::f << ".0f"<< std::endl;
+		else
+			std::cout << "float: " << ScalarConverter::f << "f"<< std::endl;
+	}
+
+	if (ScalarConverter::flag_d == 1)
+		std::cout << "double: " << "impossible"<< std::endl;
+	else
+	{
+		if (static_cast<int>(ScalarConverter::d) - ScalarConverter::d == 0)
+			std::cout << "double: " << ScalarConverter::d << ".0" << std::endl;
+		else
+			std::cout << "double: " << ScalarConverter::d << std::endl;
+	}
+
+
 }
 
 void ScalarConverter::Cast() {
@@ -109,36 +146,78 @@ void ScalarConverter::Cast() {
 			ScalarConverter::d = static_cast<double>(ScalarConverter::f);
 			break;
 		case 'd':
+			std::cout << "llego al cateo de d" << std::endl;
 			ScalarConverter::c = static_cast<char>(ScalarConverter::d);
 			ScalarConverter::i = static_cast<int>(ScalarConverter::d);
 			ScalarConverter::f = static_cast<float>(ScalarConverter::d);
 			break;
+		default :
+			ScalarConverter::flag_c = 1;
+			ScalarConverter::flag_i = 1;
+			ScalarConverter::flag_f = 1;
+			ScalarConverter::flag_d = 1;
 	};
 }
 
 void ScalarConverter::convert(std::string const &literal)
 {
-	if(ScalarConverter::SpecialOptions(literal))
-	{
+	ScalarConverter::SpecialOptions(literal);
 
-	}
 	if (literal.length() == 1 && !std::isdigit(literal[0]))
 	{
 		ScalarConverter::c = literal[0];
 		ScalarConverter::type = 'c';
-		ScalarConverter::i = static_cast<int>(ScalarConverter::c);
-		ScalarConverter::f = static_cast<float>(ScalarConverter::c);
-		ScalarConverter::d = static_cast<double>(ScalarConverter::c);
 
 		std::cout << ScalarConverter::c << std::endl;
 	}
-	// std::cout << literal << std::endl;
+	int j = 0;
+	int	f = 0;
+	int p = 0;
 
+	for (size_t i = 0; i < literal.length(); i++)
+	{
+		if (i == 0 && literal[0] == '-')
+			break;
+		if (!std::isdigit(literal[i]))
+			j = 1;
+		if ((i + 1) == literal.length() && literal[i] == 'f')
+			f = 1;
+		if (literal[i] == '.')
+		{
+			if (p == 1)
+			{
+				ScalarConverter::flag_c = 1;
+				ScalarConverter::flag_i = 1;
+				ScalarConverter::flag_f = 1;
+				ScalarConverter::flag_d = 1;
+			}
+			p = 1;
+		}
+	}
+	std::cout << "j = " << j << std::endl;
+	std::cout << "f = " << f << std::endl;
+	std::cout << "p = " << p << std::endl;
+
+	if (j == 1 && p == 1)
+	{
+		if (f == 1)
+		{
+			ScalarConverter::f = std::stof(literal);
+			ScalarConverter::type = 'f';
+		}
+		else
+		{
+			std::cout << "entro en el caso double" << std::endl;
+			ScalarConverter::d = std::stod(literal);
+			ScalarConverter::type = 'd';
+		}
+	}
+	else
+	{
+		ScalarConverter::i = std::stol(literal);
+		ScalarConverter::type = 'i';
+	}
 
 	ScalarConverter::Cast();
 	ScalarConverter::PrintInfo();
-	// std::cout << "char: '" << ScalarConverter::c << "'"<< std::endl;
-	// std::cout << "int: " << ScalarConverter::i << std::endl;
-	// std::cout << "float: " << ScalarConverter::f << std::endl;
-	// std::cout << "double: " << ScalarConverter::d << std::endl;
 }

@@ -15,10 +15,10 @@ class ScalarConverter
 
 		static char		type;
 
-		// static int 			flag_c;
-		// static int 			flag_i;
-		// static int 			flag_f;
-		// static int 			flag_d;
+		static int 			flag_c;
+		static int 			flag_i;
+		static int 			flag_f;
+		static int 			flag_d;
 		
 	public:
 		ScalarConverter();
