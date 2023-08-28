@@ -142,13 +142,18 @@ void ScalarConverter::Cast() {
 			break;
 		case 'f':
 			ScalarConverter::c = static_cast<char>(ScalarConverter::f);
-			ScalarConverter::i = static_cast<int>(ScalarConverter::f);
+			if (ScalarConverter::f <= INT_MIN || ScalarConverter::f >= INT_MAX)
+				ScalarConverter::flag_i = 1;
+			else
+				ScalarConverter::i = static_cast<int>(ScalarConverter::f);
 			ScalarConverter::d = static_cast<double>(ScalarConverter::f);
 			break;
 		case 'd':
-			std::cout << "llego al cateo de d" << std::endl;
 			ScalarConverter::c = static_cast<char>(ScalarConverter::d);
-			ScalarConverter::i = static_cast<int>(ScalarConverter::d);
+			if (ScalarConverter::d <= INT_MIN || ScalarConverter::d >= INT_MAX)
+				ScalarConverter::flag_i = 1;
+			else
+				ScalarConverter::i = static_cast<int>(ScalarConverter::d);
 			ScalarConverter::f = static_cast<float>(ScalarConverter::d);
 			break;
 		default :
@@ -194,9 +199,6 @@ void ScalarConverter::convert(std::string const &literal)
 			p = 1;
 		}
 	}
-	std::cout << "j = " << j << std::endl;
-	std::cout << "f = " << f << std::endl;
-	std::cout << "p = " << p << std::endl;
 
 	if (j == 1 && p == 1)
 	{
@@ -207,15 +209,22 @@ void ScalarConverter::convert(std::string const &literal)
 		}
 		else
 		{
-			std::cout << "entro en el caso double" << std::endl;
 			ScalarConverter::d = std::stod(literal);
 			ScalarConverter::type = 'd';
 		}
 	}
-	else
+	else if (ScalarConverter::type == 0)
 	{
-		ScalarConverter::i = std::stol(literal);
-		ScalarConverter::type = 'i';
+		try {
+			ScalarConverter::i = std::stol(literal);
+			ScalarConverter::type = 'i';
+			}
+		catch (...) {
+				ScalarConverter::flag_c = 1;
+				ScalarConverter::flag_i = 1;
+				ScalarConverter::flag_f = 1;
+				ScalarConverter::flag_d = 1;
+		}
 	}
 
 	ScalarConverter::Cast();
