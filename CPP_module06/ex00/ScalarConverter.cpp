@@ -172,51 +172,59 @@ void ScalarConverter::convert(std::string const &literal)
 	{
 		ScalarConverter::c = literal[0];
 		ScalarConverter::type = 'c';
-
-		std::cout << ScalarConverter::c << std::endl;
 	}
-	int j = 0;
-	int	f = 0;
-	int p = 0;
+	int has_digit = 0;
+	int	has_f = 0;
+	int has_point = 0;
 
 	for (size_t i = 0; i < literal.length(); i++)
 	{
 		if (i == 0 && literal[0] == '-')
 			break;
-		if (!std::isdigit(literal[i]))
-			j = 1;
+		if (std::isdigit(literal[i]))
+			has_digit = 1;
 		if ((i + 1) == literal.length() && literal[i] == 'f')
-			f = 1;
+			has_f = 1;
 		if (literal[i] == '.')
 		{
-			if (p == 1)
+			if (has_point == 1)
 			{
 				ScalarConverter::flag_c = 1;
 				ScalarConverter::flag_i = 1;
 				ScalarConverter::flag_f = 1;
 				ScalarConverter::flag_d = 1;
 			}
-			p = 1;
+			has_point = 1;
 		}
 	}
 
-	if (j == 1 && p == 1)
+	if (has_digit == 1 && has_point == 1)
 	{
-		if (f == 1)
+		if (has_f == 1)
 		{
-			ScalarConverter::f = std::stof(literal);
-			ScalarConverter::type = 'f';
+			try {
+				ScalarConverter::f = std::stof(literal);
+				ScalarConverter::type = 'f';
+			} 
+			catch (...) {}
 		}
 		else
 		{
-			ScalarConverter::d = std::stod(literal);
-			ScalarConverter::type = 'd';
+			try {
+				ScalarConverter::d = std::stod(literal);
+				ScalarConverter::type = 'd';
+			} 
+			catch (...) {}
+
 		}
 	}
 	else if (ScalarConverter::type == 0)
 	{
 		try {
-			ScalarConverter::i = std::stol(literal);
+			long lg = std::stol(literal);
+			if (lg > INT_MAX || lg < INT_MIN || literal.length() > 12)
+				ScalarConverter::flag_i = 1;
+			ScalarConverter::i = lg;
 			ScalarConverter::type = 'i';
 			}
 		catch (...) {
