@@ -1,4 +1,4 @@
-#include "Array.hpp"
+#include <Array.hpp>
 
 int main ()
 {

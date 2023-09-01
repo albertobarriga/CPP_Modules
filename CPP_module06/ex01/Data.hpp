@@ -7,6 +7,7 @@ class Data
 {
 	private:
 		std::string	_name;
+		
 	public:
 		Data();
 		~Data();

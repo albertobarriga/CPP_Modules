@@ -1,14 +1,15 @@
 CC = c++
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98 -I./
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRCS = main2.cpp
+SRCS = main.cpp \
+		Span.cpp
 
 OBJ = $(SRCS:.cpp=.o)
 
 RM = 	rm -f
 
-NAME = array
+NAME = find
 
 %.o: %.cpp
 	$(CC) $(CFLAGS) -c $^ -o $@
