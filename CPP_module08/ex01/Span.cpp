@@ -34,23 +34,19 @@ void Span::addNumber(int num)
 }
 
 int Span::shortestSpan() {
-	std::vector<int> nn(numbers.begin(), numbers.end());
-	for (size_t i=0; i < nn.size(); i++)
-		std::cout << "nn[" << i << "]: " << nn[i] << std::endl;
-	std::set<int>::iterator ite;
 	int dist = INT_MAX;
 	int temp = INT_MAX;
-	if (numbers.size() <= 1)
+	std::vector<int> nums(numbers.begin(), numbers.end());
+
+	if (nums.size() <= 1)
 		throw(NotTwo());
-	int i = 0;
-	for (ite = numbers.begin(); ite != numbers.end(); ite++) {
-		if (*(ite) != *numbers.begin())
-			temp = *ite - *(--ite++);
+
+	for (int i = 0; nums[i] != *(nums.end() - 1); i++) {
+		if (i != 0)
+			temp = nums[i] - nums[i - 1];
 		if (temp < dist)
 			dist = temp;
-		std::cout << "dist: " << dist << ", i: " << i++ << ", n: " << *ite << std::endl;
 	}
-	std::cout << "Sale bucle" << std::endl;
 	return (dist);
 }
 
@@ -65,11 +61,19 @@ int Span::longestSpan() {
 
 }
 
-void Span::print() {
-	std::set<int>::iterator ite;
-	for (ite = numbers.begin(); ite != numbers.end(); ite++) {
-		std::cout << *ite << ", "; 
-	}
-	std::cout << std::endl;
+void Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+{
+	size_t i = (size_t)std::distance(begin, end);
+	if (max_size < i)
+		throw(NoMoreNums());
+	this->numbers.insert(begin, end);
 }
+
+// void Span::print() {
+// 	std::set<int>::iterator ite;
+// 	for (ite = numbers.begin(); ite != numbers.end(); ite++) {
+// 		std::cout << *ite << ", "; 
+// 	}
+// 	std::cout << std::endl;
+// }
 

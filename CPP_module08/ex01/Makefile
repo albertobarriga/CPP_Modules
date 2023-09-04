@@ -9,7 +9,7 @@ OBJ = $(SRCS:.cpp=.o)
 
 RM = 	rm -f
 
-NAME = find
+NAME = span
 
 %.o: %.cpp
 	$(CC) $(CFLAGS) -c $^ -o $@
