@@ -22,16 +22,16 @@ class ScalarConverter
 		static int 			flag_d;
 		
 		ScalarConverter();
-		
-	public:
-
 		~ScalarConverter();
 		ScalarConverter(ScalarConverter const &copy);
 		ScalarConverter	&operator=(ScalarConverter const &copy);
-		static void	convert(std::string const &literal);
 		static void	SpecialOptions(std::string const &literal);
 		static void Cast();
 		static void PrintInfo();
+		
+	public:
+
+		static void	convert(std::string const &literal);
 };
 
 #endif
