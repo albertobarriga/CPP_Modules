@@ -8,7 +8,7 @@ OBJ = $(SRCS:.cpp=.o)
 
 RM = 	rm -f
 
-NAME = span
+NAME = mutated
 
 %.o: %.cpp
 	$(CC) $(CFLAGS) -c $^ -o $@
