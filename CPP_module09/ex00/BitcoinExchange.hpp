@@ -5,10 +5,12 @@
 # include <map>
 # include <fstream>
 # include <string>
+# include <ctime>
+
 class BitcoinExchange
 {
 	private:
-		std::map<std::string, std::string>	_map;
+		std::map<std::time_t, float>	_map;
 
 	public:
 		// BitcoinExchange();
@@ -18,9 +20,9 @@ class BitcoinExchange
 
 		bool CheckOpen(int argc, char **argv);
 		bool GetFile(std::ifstream &infile);
-		bool GetDataBase(std::string &file);
-		float	getValue(std::string line);
-		std::time_t getDate(std::string line);
+		bool GetDataBase(std::string file);
+		float	getValue(std::string line, std::string del);
+		std::time_t getDate(std::string line, std::string del);
 		bool	check_line(std::string line);
 };
 
