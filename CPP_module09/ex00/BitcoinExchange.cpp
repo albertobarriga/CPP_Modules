@@ -1,22 +1,36 @@
 #include "BitcoinExchange.hpp"
 
+BitcoinExchange::BitcoinExchange() {
+}
+
+BitcoinExchange::~BitcoinExchange() {
+}
+
+BitcoinExchange::BitcoinExchange(BitcoinExchange const &copy): _map(copy._map) {
+}
+
+BitcoinExchange	&BitcoinExchange::operator=(BitcoinExchange const &copy) {
+	if(this != &copy)
+		_map = copy._map;
+	return (*this);
+}
+
 bool	BitcoinExchange::check_line(std::string line) {
 	if (line.find("|") == std::string::npos)
 	{
-		std::cout << "Error bad input" << std::endl;
+		std::cout << "Error bad input"  << " => "<< line << std::endl;
 		return 0;
 	}
-	// else if (line.find("date") != std::string::npos)
-	// {
-	// 	std::cout << "Error bad input" << std::endl;
-	// 	return 0;
-	// }
-	else if (getValue(line, "|") < 0 || getValue(line, "|") > 1000)
+	else if (getValue(line, "|") < 0)
 	{
-		std::cout << "ERROR: bad amount input" << std::endl;
+		std::cout << "Error: not a positive number." << std::endl;
 		return 0;
 	}
-	// else if (getDate(line))
+	else if (getValue(line, "|") > 1000)
+	{
+		std::cout << "Error: too large a number." << std::endl;
+		return 0;
+	}
 	return(1);
 }
 
@@ -32,8 +46,6 @@ float	BitcoinExchange::getValue(std::string line, std::string del)
 	catch(...) {
 		std::cout << "ERROR: amount not valid" << std::endl;
 	}
-	// std::cout << amount << std::endl;
-	
 	return(amount);
 }
 
@@ -69,57 +81,66 @@ bool BitcoinExchange::GetFile(std::ifstream &infile){
 	std::string line;
 	float prize;
 	time_t day = 86400;
+	time_t date_temp;
 
 	getline(infile, line);
 	while(getline(infile, line))
 	{
 		if(check_line(line))
 		{
-			// int i = 0;
 			float amount = getValue(line, "|");
 			time_t date = getDate(line, "|");
-			std::cout << "tiempo_input : " << date << std::endl;
-			std::cout << "cantidad : " << amount << std::endl;
-			// this->_map[date] = amount;
 			std::map<std::time_t, float>::iterator iter = _map.find(date);
-			if (iter != _map.end()) {
+			if (iter != _map.end() && date != 0) {
 				prize = iter->second;
-				std::cout << "precio : " << prize << std::endl;
+				std::tm *tm_date;
+					tm_date = std::localtime(&date);
+					char buffer[80];
+					strftime(buffer, sizeof(buffer), "%Y-%m-%d", tm_date);
+					std::cout << buffer << " => " << amount << " = "<< prize * amount << std::endl;
 			}
 			else
 			{
 				int i = 0;
+				date_temp = date;
 				while (i < 3 && iter == _map.end())
 				{
-					date -= day;
-					// std::cout << "tiempo_input modificado : " << date << std::endl;
-					iter = _map.find(date);
+					date_temp -= day;
+					iter = _map.find(date_temp);
 					i++;
 				}
-				if (iter != _map.end()) {
+				if (iter != _map.end() && date != 0) {
 					prize = iter->second;
-					std::cout << "precio : " << prize << std::endl;
+
+					std::tm *tm_date;
+					tm_date = std::localtime(&date);
+					char buffer[80];
+					strftime(buffer, sizeof(buffer), "%Y-%m-%d", tm_date);
+					std::cout << buffer << " => " << amount << " = "<< prize * amount << std::endl;
 				}
 				else
 				{
-					std::cout << "ERROR: Data not exist"<< std::endl;
-					return 1;
+					std::cout << "ERROR: Data is out of range"<< std::endl;
 				}
 			}
-				std::cout << "tiempo_data : " << iter->first << std::endl;
 		}
-		std::cout << std::endl;
 	}
 	return (0);
 }
 
 bool BitcoinExchange::CheckOpen(int argc, char **argv) {
 	if (argc != 2)
+	{
+		std::cout << "Error: could not open file." << std::endl;
 		return (1);
+	}
 	std::string file_name = argv[1];
 	std::ifstream infile(file_name);
 	if (!infile.is_open())
-		return(1);
+	{
+		std::cout << "Error: could not open file." << std::endl;
+		return (1);
+	}
 	if (this->GetDataBase("data.csv"))
 		return(1);
 	if (this->GetFile(infile))

@@ -12,11 +12,13 @@ class BitcoinExchange
 	private:
 		std::map<std::time_t, float>	_map;
 
+
+
 	public:
-		// BitcoinExchange();
-		// ~BitcoinExchange();
-		// BitcoinExchange(BitcoinExchange const &copy);
-		// BitcoinExchange	&operator=(BitcoinExchange const &copy);
+		BitcoinExchange();
+		~BitcoinExchange();
+		BitcoinExchange(BitcoinExchange const &copy);
+		BitcoinExchange	&operator=(BitcoinExchange const &copy);
 
 		bool CheckOpen(int argc, char **argv);
 		bool GetFile(std::ifstream &infile);
