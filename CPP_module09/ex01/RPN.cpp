@@ -59,10 +59,15 @@ bool	RPN::calculate(std::string const &input) {
 	return (0);
 }
 
-void	RPN::result() {
+bool	RPN::result() {
 	if (_nums.size() == 1)
+	{
 		std::cout << _nums.top() << std::endl;
+		return 0;
+	}
 	else
+	{
 		std::cout << "ERROR: BAD SYNTAXIS" << std::endl;
+		return 1;
+	}
 }
-

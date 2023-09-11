@@ -15,7 +15,7 @@ class RPN
 		RPN	&operator=(RPN const &copy);
 
 		bool	calculate(std::string const &input);
-		void	result();
+		bool	result();
 };
 
 #endif

@@ -10,6 +10,7 @@ int main(int argc, char **argv)
 	}
 	if (calculator.calculate(std::string(argv[1])))
 		return (1);
-	calculator.result();
-
+	if (calculator.result())
+		return (1);
+	return (0);
 }
