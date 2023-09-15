@@ -27,4 +27,5 @@ int main(int argc, char **argv)
 	{
 		algorithm.mergesort();
 	}
+	return (1);
 }

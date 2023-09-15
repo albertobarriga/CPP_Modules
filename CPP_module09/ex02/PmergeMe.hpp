@@ -21,6 +21,7 @@ class PmergeMe
 		int 	fill(char **argv);
 		void	mergesort();
 		std::vector<int> merge_algtm(std::vector<int> vect);
+		std::list<int> merge_algtm_lst(std::list<int> lst);
 };
 
 #endif
